@@ -1,5 +1,47 @@
 # Mini Hiring Pipeline
 
+A local-first recruiter workspace for managing candidates through a controlled hiring pipeline, reviewing an immutable stage history, and answering constrained natural-language queries.
+
+## Product Preview
+
+> A lightweight recruiter workspace for candidate progression, audit history, and deterministic search.
+
+### Recruiter Pipeline Dashboard
+
+![Mini Hiring Pipeline dashboard](docs/images/01-pipeline-dashboard.png)
+
+Candidates move through five hiring stages, with a separate Rejected column and a summary across all six outcomes.
+
+### Candidate History & Audit Trail
+
+![Priya Sharma candidate history](docs/images/02-candidate-history.png)
+
+Each profile shows the current stage, time in stage, and timestamped stage events.
+
+### Fuzzy Candidate Search
+
+![Fuzzy candidate search for sharam](docs/images/03-fuzzy-search.png)
+
+The typo `sharam` finds Priya Sharma through fuzzy lexical matching.
+
+### Current Stage Search
+
+![Candidates currently in Interview](docs/images/04-stage-search.png)
+
+`Who's in Interview right now?` returns candidates currently in that stage.
+
+### Duration Search
+
+![Candidates in Screening for more than a week](docs/images/05-duration-search.png)
+
+Find candidates whose stored current-stage duration exceeds a specified threshold.
+
+### Historical Search
+
+![Candidates who reached Offer but were not hired](docs/images/06-offer-history-search.png)
+
+`Who reached the Offer stage but didn't get hired?` checks historical events separately from current status.
+
 ## Overview
 
 A locally run recruiting workspace for one open role. Candidates move through Applied, Screening, Interview, Offer, and Hired, with rejection available before hire. The board and search are backed by SQLite; every change is recorded in an append only event history.
@@ -10,7 +52,7 @@ Recruiters need a small, dependable way to see candidate progress, make valid st
 
 ## Features
 
-- Five stage Kanban board with candidate counts, stage age, add, advance, and reject actions.
+- Six outcome columns (five hiring stages plus Rejected) with candidate counts, stage age, add, advance, and reject actions.
 - Candidate profile with complete timestamped audit history.
 - Server enforced single stage progression and final outcomes.
 - One natural language search box with name matching, typo tolerance, current stage, transition history, elapsed time, exclusions, and explanations.
